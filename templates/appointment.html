@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Smart Healthcare</a>
+    <div>
+      <a class="btn btn-light btn-sm me-2" href="/dashboard">Predict</a>
+      <a class="btn btn-light btn-sm me-2" href="/history">History</a>
+      <a class="btn btn-light btn-sm me-2" href="/appointment">Appointment</a>
+      <a class="btn btn-danger btn-sm" href="/logout">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4 text-center">
+
+        {% if appointment %}
+            <h4 class="text-success">✅ Appointment Confirmed!</h4>
+            <p class="mt-3">
+                <strong>Doctor:</strong> {{ appointment[0] }} <br>
+                <strong>Specialization:</strong> {{ appointment[1] }}
+            </p>
+
+            <a href="/history" class="btn btn-primary mt-3">
+                View Appointment History
+            </a>
+
+        {% else %}
+            <h4 class="text-warning">No Appointment Booked Yet</h4>
+            <p class="mt-3">
+                You have not booked any appointment yet.
+            </p>
+
+            <a href="/dashboard" class="btn btn-success mt-3">
+                Go to Predict Page
+            </a>
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
